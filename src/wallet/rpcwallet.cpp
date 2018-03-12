@@ -4086,13 +4086,13 @@ UniValue z_mergetoaddress(const UniValue& params, bool fHelp)
 
     // Return continuation information
     UniValue o(UniValue::VOBJ);
-    o.push_back(Pair("remainingUTXOs", utxoCounter - numUtxos));
+    o.push_back(Pair("remainingUTXOs", (uint64_t)(utxoCounter - numUtxos)));
     o.push_back(Pair("remainingTransparentValue", ValueFromAmount(remainingUTXOValue)));
-    o.push_back(Pair("remainingNotes", noteCounter - numNotes));
+    o.push_back(Pair("remainingNotes", (uint64_t)(noteCounter - numNotes)));
     o.push_back(Pair("remainingShieldedValue", ValueFromAmount(remainingNoteValue)));
-    o.push_back(Pair("mergingUTXOs", numUtxos));
+    o.push_back(Pair("mergingUTXOs", (uint64_t)numUtxos));
     o.push_back(Pair("mergingTransparentValue", ValueFromAmount(mergedUTXOValue)));
-    o.push_back(Pair("mergingNotes", numNotes));
+    o.push_back(Pair("mergingNotes", (uint64_t)numNotes));
     o.push_back(Pair("mergingShieldedValue", ValueFromAmount(mergedNoteValue)));
     o.push_back(Pair("opid", operationId));
     return o;
